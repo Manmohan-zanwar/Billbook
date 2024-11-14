@@ -1,11 +1,12 @@
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import messagebox, ttk
 
 class ShopBillingSystem:
     def __init__(self, root):
         self.root = root
         self.root.title("Shop Billing System")
         self.root.geometry("500x600")
+        self.root.configure(bg='#AFE1AF')  # Parrot green background
 
         # Define shop items
         self.items = {
@@ -32,37 +33,39 @@ class ShopBillingSystem:
         self.create_cart_and_bill_buttons()
 
     def create_input_fields(self):
-        tk.Label(self.root, text="Employee Name").pack(pady=5)
+        tk.Label(self.root, text="Employee Name", bg='#AFE1AF', fg='white').pack(pady=5)
         self.employee_name_entry = tk.Entry(self.root)
         self.employee_name_entry.pack(pady=5)
 
-        tk.Label(self.root, text="Customer Name").pack(pady=5)
+        tk.Label(self.root, text="Customer Name", bg='#AFE1AF', fg='white').pack(pady=5)
         self.customer_name_entry = tk.Entry(self.root)
         self.customer_name_entry.pack(pady=5)
 
-        tk.Label(self.root, text="Customer ID (CID)").pack(pady=5)
+        tk.Label(self.root, text="Customer ID (CID)", bg='#AFE1AF', fg='white').pack(pady=5)
         self.customer_id_entry = tk.Entry(self.root)
         self.customer_id_entry.pack(pady=5)
 
     def create_item_selection(self):
-        tk.Label(self.root, text="Select Item").pack(pady=5)
-        self.item_var = tk.StringVar()
-        self.item_var.set(list(self.items.keys())[0])
-        self.item_menu = tk.OptionMenu(self.root, self.item_var, *self.items.keys())
-        self.item_menu.pack(pady=5)
+        tk.Label(self.root, text="Select Item", bg='#AFE1AF', fg='white').pack(pady=5)
 
-        tk.Label(self.root, text="Quantity").pack(pady=5)
+        # Use ttk Combobox for a better dropdown experience
+        self.item_var = tk.StringVar()
+        self.item_dropdown = ttk.Combobox(self.root, textvariable=self.item_var, values=list(self.items.keys()), state="readonly")
+        self.item_dropdown.current(0)  # Set default selection
+        self.item_dropdown.pack(pady=5)
+
+        tk.Label(self.root, text="Quantity", bg='#AFE1AF', fg='white').pack(pady=5)
         self.quantity_entry = tk.Entry(self.root)
         self.quantity_entry.pack(pady=5)
 
     def create_cart_and_bill_buttons(self):
-        add_button = tk.Button(self.root, text="Add to Cart", command=self.add_to_cart)
+        add_button = tk.Button(self.root, text="Add to Cart", command=self.add_to_cart, bg="white", fg="black")
         add_button.pack(pady=10)
 
-        bill_button = tk.Button(self.root, text="Generate Bill", command=self.generate_bill)
+        bill_button = tk.Button(self.root, text="Generate Bill", command=self.generate_bill, bg="white", fg="black")
         bill_button.pack(pady=10)
 
-        self.bill_text = tk.Text(self.root, height=15, width=50)
+        self.bill_text = tk.Text(self.root, height=15, width=50, bg="white")
         self.bill_text.pack(pady=10)
 
     def add_to_cart(self):
