@@ -10,22 +10,22 @@ class ShopBillingSystem:
 
         # Define shop items
         self.items = {
-            "GeekBar": 800,
-            "Flavoured GeekBar": 1000,
-            "Refill": 400,
-            "THC Refill": 500,
-            "Joints": 150,
-            "Weed Gummies": 80,
-            "Brownies": 100,
-            "Bong": 900,
-            "Penjamin": 300,
-            "Almond Joy": 20,
-            "Rice Krispies": 30
+            "Product 1": 800,
+            "Product 2": 1000,
+            "Product 3": 400,
+            "Product 4": 500,
+            "Product 5": 150,
+            "Product 6": 80,
+            "Product 7": 100,
+            "Product 8": 900,
+            "Product 9": 300,
+            "Product 10": 20,
+            "Product 11": 30
         }
         
         self.cart = []
-        self.vape_refill_count = 0
-        self.joints_count = 0
+        # self.vape_refill_count = 0
+        # self.joints_count = 0   #used for some personal work!
 
         # Employee and Customer details
         self.create_input_fields()
