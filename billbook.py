@@ -76,13 +76,4 @@ class ShopBillingSystem:
         
         print("\nThank you for shopping with us!")
 
-# Example Usage
-shop = ShopBillingSystem()
-shop.set_employee_name("Alex")
-shop.set_customer_details("John Doe", "12345")
-shop.add_to_cart("GeekBar", 1)
-shop.add_to_cart("Refill", 2)
-shop.add_to_cart("Joints", 3)
 
-# Generate bill with a 10% discount
-shop.generate_bill(discount_percentage=10)
