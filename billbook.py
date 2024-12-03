@@ -23,7 +23,7 @@ class ShopBillingSystem:
             "Product 11": 30
         }
         
-        self.cart = []
+        # self.cart = []
         # self.vape_refill_count = 0
         # self.joints_count = 0   #used for some personal work!
 
